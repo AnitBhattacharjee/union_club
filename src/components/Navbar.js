@@ -1,21 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.png'; // Add logo here
-import { useTheme } from '../ThemeContext';  // Import useTheme hook for toggling theme
+import logo from '../assets/images/cirlogo.png'; // Path to your logo
 
 const Navbar = () => {
-  const { toggleTheme, theme } = useTheme(); // Access toggleTheme and theme from context
-
   return (
     <nav className="bg-gray-800 p-4 shadow-lg flex justify-between items-center">
       <Link to="/">
         <img
           src={logo}
           alt="Logo"
-          className="h-12 transition-transform transform hover:scale-150"  // Animation for logo
+          className="h-12 w-12 rounded-full transition-transform transform hover:scale-150"  // Make logo circular with Tailwind
         />
       </Link>
-      <ul className="flex space-x-6 items-center">
+      <ul className="flex space-x-6">
         <li>
           <Link to="/" className="text-white hover:text-gray-400 transition-colors">
             Home
@@ -35,15 +32,6 @@ const Navbar = () => {
           <Link to="/past-presidents" className="text-white hover:text-gray-400 transition-colors">
             Past Presidents
           </Link>
-        </li>
-        <li>
-          {/* Light/Dark Mode Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="text-white hover:text-gray-400 transition-colors p-2 bg-gray-700 rounded-md"
-          >
-            {theme === 'light' ? '🌙' : '☀️'}
-          </button>
         </li>
       </ul>
     </nav>
